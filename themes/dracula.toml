@@ -1,0 +1,348 @@
+# Starship configuration file
+# For documentation on these settings, see: https://github.com/starship/starship/tree/master/docs/config
+
+# Use custom format
+format = """
+[┬](61)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+$all\
+[└](61)\
+$shell\
+$cmd_duration\
+$character"""
+
+# Timeout for starship to scan files (in milliseconds).
+scan_timeout = 30
+
+# Timeout for commands executed by starship (in milliseconds).
+command_timeout = 500
+
+# Inserts a blank line between shell prompts.
+add_newline = false
+
+# A continuation prompt that displays two filled in arrows
+# continuation_prompt = "❯❯"
+
+[character]
+format = '$symbol '
+success_symbol = '[❯](84)'
+error_symbol = '[[\[[](203)\]](61)❯](203)'
+vicmd_symbol = '[❯](84)'
+disabled = false
+
+[cmd_duration]
+min_time = 2000
+format = """
+[\\[](61)\
+[祥$duration]($style)\
+[\\]](61)\
+"""
+style = 'fg:228'
+show_milliseconds = false
+disabled = false
+show_notifications = false
+min_time_to_notify = 45000
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+format = """
+[\\[](61)\
+[$read_only]($read_only_style)\
+[$path]($style)\
+[\\]](61)\
+"""
+repo_root_format = """
+[\\[](61)\
+[[](228) $before_root_path]($style)\
+[$read_only]($read_only_style)\
+[$repo_root]($repo_root_style)\
+[$path]($style)\
+[\\]](61)\
+"""
+style = 'fg:117'
+disabled = false
+read_only = ' '
+read_only_style = 'fg:203'
+truncation_symbol = '…/'
+repo_root_style = 'fg:228'
+home_symbol = '~'
+# use_os_path_sep = true
+
+[docker_context]
+format = """
+[\\[](61)\
+[$symbol$context]($style)\
+[\\]](61)\
+"""
+symbol = ' '
+only_with_files = true
+detect_extensions = []
+detect_files = [
+    'docker-compose.yml',
+    'docker-compose.yaml',
+    'Dockerfile',
+]
+detect_folders = []
+style = 'blue'
+disabled = false
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[env_var]
+disabled = true
+
+[erlang]
+disabled = true
+
+[fill]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+always_show_remote = false
+format = """
+[\\[](61)\
+[$symbol$branch]($style)\
+"""
+symbol = ' '
+style = 'fg:228'
+truncation_length = 9223372036854775807
+truncation_symbol = '…'
+only_attached = false
+disabled = false
+
+[git_commit]
+commit_hash_length = 7
+format = '[\( $hash$tag\)]($style)'
+style = 'fg:228'
+only_detached = true
+tag_disabled = true
+tag_symbol = '  '
+disabled = false
+
+[git_metrics]
+added_style = 'fg:84'
+deleted_style = 'fg:203'
+format = '[ ++$added]($added_style)[ --$deleted]($deleted_style)[\]](61)'
+disabled = true
+
+[git_state]
+rebase = 'REBASING'
+merge = 'MERGING'
+revert = 'REVERTING'
+cherry_pick = 'CHERRY-PICKING'
+bisect = 'BISECTING'
+am = 'AM'
+am_or_rebase = 'AM/REBASE'
+style = 'fg:228'
+format = '\([$state( $progress_current/$progress_total)]($style)\)'
+disabled = false
+
+[git_status]
+# format = '([$ahead_behind$all_status[\]](61)]($style))'
+format = """
+$ahead_behind\
+$conflicted\
+$stashed\
+$staged\
+$deleted\
+$untracked\
+$renamed\
+$modified\
+[\\]](61)\
+"""
+conflicted = '[ =](203)'
+ahead = '[ ↑${count}](84)'
+behind = '[ ↓${count}](203)'
+diverged = '[ ≢](215)'
+up_to_date = '[ ≡](228)'
+untracked = '[ +${count}](84)'
+stashed = '[ \$${count}](228)'
+modified = '[ ~${count}](215)'
+staged = '[ *${count}](228)'
+renamed = '[ »${count}](215)'
+deleted = '[ -${count}](203)'
+# ignore_submodules = true
+disabled = false
+
+[golang]
+disabled = true
+
+[helm]
+disabled = true
+
+[hostname]
+ssh_only = false
+trim_at = '.'
+format = """
+[\
+$hostname\
+[\\]](61)\
+]($style)"""
+style = 'fg:141'
+disabled = false
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
+symbol = 'ﴱ '
+format = """
+[\\[](61)\
+[$symbol$context( \\($namespace\\))]($style)\
+[\\]](61)\
+"""
+style = 'fg:62'
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[openstack]
+format = """
+[\\[](61)\
+[$symbol$cloud(\\($project\\))]($style)\
+[\\]](61)\
+"""
+symbol = '☁️  '
+style = '161'
+disabled = false
+
+[package]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[python]
+disabled = true
+
+[rlang]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[scala]
+disabled = true
+
+[shell]
+powershell_indicator = 'pwsh'
+unknown_indicator = 'mystery shell'
+format = """
+[\\[](61)\
+[ $indicator]($style)\
+[\\]](61)\
+"""
+style = 'fg:212'
+disabled = false
+
+[shlvl]
+disabled  = true
+
+[singularity]
+disabled = true
+
+[status]
+disabled = true
+
+[sudo]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[time]
+disabled = true
+
+[username]
+style_root = 'fg:228'
+style_user = 'fg:141'
+format = """
+[\
+[\\[](61)\
+$user\
+[|[@](212)|](61)\
+]($style)"""
+disabled = false
+show_always = true
+
+[vagrant]
+disabled = true
+
+[vlang]
+disabled = true
+
+[vcsh]
+disabled = true
+
+[zig]
+disabled = true
